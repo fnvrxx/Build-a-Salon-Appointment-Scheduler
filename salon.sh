@@ -33,7 +33,7 @@ NEXT(){
     echo -e "\nI don't have a record for that phone number, what's your name?"
     read CUSTOMER_NAME
     NAME=$(echo $NAME | sed 's/ //g')
-    SAVED_TO_CUSTOMERS=$($PSQL "INSERT INTO customers(name,phone) VALUES('$NAME','$CUSTOMER_PHONE')")
+    SAVED_TO_CUSTOMERS=$($PSQL "INSERT INTO customers(name,phone) VALUES('$CUSTOMER_NAME','$CUSTOMER_PHONE')")
   fi
 
   GET_SERVICE_NAME=$($PSQL "SELECT name FROM services WHERE service_id=$SERVICE_ID_SELECTED")
